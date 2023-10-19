@@ -15,15 +15,15 @@ public class CourseRequestDto {
     private String title;
 
     @NotNull
-    @Positive
-    private Long employeeId;
-
-    @NotNull
     @PastOrPresent
     private LocalDate date;
 
+    @NotNull
+    @Positive
+    private Long employeeId;
+
     @Size(max = 255)
-    private String location;
+    private String country;
 
     @Size(max = 255)
     private String comment;
