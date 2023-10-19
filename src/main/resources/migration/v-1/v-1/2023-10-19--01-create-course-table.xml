@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.13.xsd">
+
+    <changeSet logicalFilePath="2023-10-19--01-create-course-table.xml"
+               author="w.denysewicz"
+               id="2023-10-19--01-create-course-table">
+        <comment>Create courses table and index idx_course_employee_id on employee_id column</comment>
+        <createTable tableName="course">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employee_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deleted" type="boolean" defaultValue="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="varchar(255)"/>
+            <column name="created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="varchar(255)"/>
+        </createTable>
+
+        <createIndex indexName="idx_course_employee_id" tableName="course">
+            <column name="employee_id"/>
+        </createIndex>
+
+        <rollback>
+            <dropTable tableName="course"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

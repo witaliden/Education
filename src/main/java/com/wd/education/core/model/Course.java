@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Where(clause = "deleted = 'false'")
-@Table(name = "courses", indexes = @Index(columnList = "employee_id", name = "idx_courses_employee_id"))
+@Table(name = "courses", indexes = @Index(columnList = "employee_id", name = "idx_course_employee_id"))
 public class Course {
 
     @Id
