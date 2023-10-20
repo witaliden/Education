@@ -6,13 +6,14 @@ import com.wd.education.api.dto.CourseResponseDto;
 import java.util.List;
 
 public interface CourseService {
-    CourseResponseDto get(long courseId, long employeeId);
 
-    List<CourseResponseDto> getAll(long employeeId);
+  CourseResponseDto get(long courseId, long employeeId);
 
-    CourseResponseDto save(CourseRequestDto courseRequestDto);
+  List<CourseResponseDto> getAll(long employeeId);
 
-    CourseResponseDto update(long courseId, CourseRequestDto courseRequestDto);
+  CourseResponseDto save(CourseRequestDto courseRequestDto);
 
-    void delete(long courseId);
+  CourseResponseDto update(long courseId, CourseRequestDto courseRequestDto);
+
+  void delete(long courseId);
 }

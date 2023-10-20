@@ -8,8 +8,8 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 @ConfigurationPropertiesScan("com.wd.education")
 public class EducationApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(EducationApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(EducationApplication.class, args);
+  }
 
 }

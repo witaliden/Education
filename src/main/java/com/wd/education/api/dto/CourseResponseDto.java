@@ -9,10 +9,10 @@ import java.time.LocalDate;
 @Setter
 public class CourseResponseDto {
 
-    private Long id;
-    private String title;
-    private LocalDate date;
-    private String country;
-    private String comment;
+  private Long id;
+  private String title;
+  private LocalDate date;
+  private String country;
+  private String comment;
 
 }

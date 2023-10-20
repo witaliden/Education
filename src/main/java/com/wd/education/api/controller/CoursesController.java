@@ -22,44 +22,45 @@ import java.util.List;
 @Validated
 public class CoursesController {
 
-    private final CourseServiceImpl courseService;
+  private final CourseServiceImpl courseService;
 
-    @GetMapping(value = "/{courseId}")
-    @ApiResponseWithContent
-    public CourseResponseDto getCourse(
-            @PathVariable("courseId") final long courseId, @RequestParam final long employeeId) {
-        log.debug("Requested course with id:{} for employee with id [{}]", courseId, employeeId);
-        return courseService.get(courseId, employeeId);
-    }
+  @GetMapping(value = "/{courseId}")
+  @ApiResponseWithContent
+  public CourseResponseDto getCourse(
+      @PathVariable("courseId") final long courseId, @RequestParam final long employeeId) {
+    log.debug("Requested course with id:{} for employee with id [{}]", courseId, employeeId);
+    return courseService.get(courseId, employeeId);
+  }
 
-    @GetMapping
-    @ApiResponseWithContent
-    public List<CourseResponseDto> getCourses(@RequestParam("employeeId") final long employeeId) {
-        log.debug("Requested course for employee with id: {}", employeeId);
-        return courseService.getAll(employeeId);
-    }
+  @GetMapping
+  @ApiResponseWithContent
+  public List<CourseResponseDto> getCourses(@RequestParam("employeeId") final long employeeId) {
+    log.debug("Requested course for employee with id: {}", employeeId);
+    return courseService.getAll(employeeId);
+  }
 
-    @PostMapping
-    @ResponseStatus(code = HttpStatus.CREATED)
-    @ApiResponseWithContent
-    public CourseResponseDto createCourse(@Valid @RequestBody final CourseRequestDto courseRequestDto) {
-        log.debug("Create course for employee with id {{}}", courseRequestDto.getEmployeeId());
-        return courseService.save(courseRequestDto);
-    }
+  @PostMapping
+  @ResponseStatus(code = HttpStatus.CREATED)
+  @ApiResponseWithContent
+  public CourseResponseDto createCourse(
+      @Valid @RequestBody final CourseRequestDto courseRequestDto) {
+    log.debug("Create course for employee with id {{}}", courseRequestDto.getEmployeeId());
+    return courseService.save(courseRequestDto);
+  }
 
-    @PutMapping(value = "/{courseId}")
-    @ApiResponseWithContent
-    public CourseResponseDto updateCourse(
-            @PathVariable(name = "courseId") final long courseId,
-            @Valid @RequestBody final CourseRequestDto courseRequestDto) {
-        log.debug("Update course with id [{}] with courseRequestDto: {}", courseId, courseRequestDto);
-        return courseService.update(courseId, courseRequestDto);
-    }
+  @PutMapping(value = "/{courseId}")
+  @ApiResponseWithContent
+  public CourseResponseDto updateCourse(
+      @PathVariable(name = "courseId") final long courseId,
+      @Valid @RequestBody final CourseRequestDto courseRequestDto) {
+    log.debug("Update course with id [{}] with courseRequestDto: {}", courseId, courseRequestDto);
+    return courseService.update(courseId, courseRequestDto);
+  }
 
-    @DeleteMapping(value = "/{courseId}")
-    @ApiResponseWithoutContent
-    public void deleteCourse(@PathVariable(name = "courseId") final long courseId) {
-        log.debug("Delete course with id [{}]", courseId);
-        courseService.delete(courseId);
-    }
+  @DeleteMapping(value = "/{courseId}")
+  @ApiResponseWithoutContent
+  public void deleteCourse(@PathVariable(name = "courseId") final long courseId) {
+    log.debug("Delete course with id [{}]", courseId);
+    courseService.delete(courseId);
+  }
 }

@@ -13,19 +13,19 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Getter
 public enum CourseType {
-    PROGRAMMING(1, "Programming course"),
-    FRAMEWORK(2, "Framework course"),
-    SECURITY(3, "Security course"),
-    LANGUAGE(4, "Foreign language course"),
-    CLIENT(5, "Client oriented skill");
+  PROGRAMMING(1, "Programming course"),
+  FRAMEWORK(2, "Framework course"),
+  SECURITY(3, "Security course"),
+  LANGUAGE(4, "Foreign language course"),
+  CLIENT(5, "Client oriented skill");
 
-    public static final Map<Integer, CourseType> COURSE_TYPE = getCourses();
+  public static final Map<Integer, CourseType> COURSE_TYPE = getCourses();
 
-    private final Integer id;
-    private final String name;
+  private final Integer id;
+  private final String name;
 
-    private static Map<Integer, CourseType> getCourses() {
-        return Arrays.stream(CourseType.values()).collect(
-                Collectors.toMap(CourseType::getId, Function.identity()));
-    }
+  private static Map<Integer, CourseType> getCourses() {
+    return Arrays.stream(CourseType.values()).collect(
+        Collectors.toMap(CourseType::getId, Function.identity()));
+  }
 }

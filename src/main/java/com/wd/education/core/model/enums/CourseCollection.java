@@ -11,13 +11,13 @@ import static com.wd.education.core.model.enums.CourseType.*;
 @AllArgsConstructor
 @Getter
 public enum CourseCollection {
-    TECH(PROGRAMMING, FRAMEWORK, SECURITY),
-    SOFT(LANGUAGE, CLIENT);
+  TECH(PROGRAMMING, FRAMEWORK, SECURITY),
+  SOFT(LANGUAGE, CLIENT);
 
-    private final EnumSet<CourseType> courses;
+  private final EnumSet<CourseType> courses;
 
-    CourseCollection(final CourseType... courseTypes) {
-        this.courses = EnumSet.noneOf(CourseType.class);
-        courses.addAll(Arrays.asList(courseTypes));
-    }
+  CourseCollection(final CourseType... courseTypes) {
+    this.courses = EnumSet.noneOf(CourseType.class);
+    courses.addAll(Arrays.asList(courseTypes));
+  }
 }

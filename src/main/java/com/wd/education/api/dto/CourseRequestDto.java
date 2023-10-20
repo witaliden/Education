@@ -10,21 +10,21 @@ import java.time.LocalDate;
 @Setter
 public class CourseRequestDto {
 
-    @NotEmpty
-    @Size(max = 255)
-    private String title;
+  @NotEmpty
+  @Size(max = 255)
+  private String title;
 
-    @NotNull
-    @PastOrPresent
-    private LocalDate date;
+  @NotNull
+  @PastOrPresent
+  private LocalDate date;
 
-    @NotNull
-    @Positive
-    private Long employeeId;
+  @NotNull
+  @Positive
+  private Long employeeId;
 
-    @Size(max = 255)
-    private String country;
+  @Size(max = 255)
+  private String country;
 
-    @Size(max = 255)
-    private String comment;
+  @Size(max = 255)
+  private String comment;
 }

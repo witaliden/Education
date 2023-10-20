@@ -7,7 +7,8 @@ import org.mapstruct.Mapper;
 
 @Mapper
 public interface CourseConverter {
-    Course toCourseEntity(CourseRequestDto courseRequestDto);
 
-    CourseResponseDto toCourseResponseDto(Course course);
+  Course toCourseEntity(CourseRequestDto courseRequestDto);
+
+  CourseResponseDto toCourseResponseDto(Course course);
 }
