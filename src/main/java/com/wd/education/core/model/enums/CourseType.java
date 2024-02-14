@@ -1,16 +1,13 @@
 package com.wd.education.core.model.enums;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
 import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Getter
 public enum CourseType {
   PROGRAMMING(1, "Programming course"),

@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Function;
+import lombok.SneakyThrows;
 
 import static java.util.stream.Collectors.toMap;
 
@@ -21,6 +22,8 @@ public class BaseTypeConverter<T extends Enum<T>, Y> implements AttributeConvert
     return toDataBaseColumn.apply(value);
   }
 
+  //TODO: remove after exception handler is configured.
+  @SneakyThrows
   @Override
   public T convertToEntityAttribute(final Y value) {
     if (value == null) {

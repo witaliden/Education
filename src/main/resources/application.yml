@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: education
+  datasource:
+    username: ${DATABASE_USERNAME:liquibase_education}
+    password: ${DATABASE_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:education}
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: contracts-api-pool
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 30000
+      connection-timeout: 30000
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        jdbc:
+          batch_size: 25
+        order_updates: true
+        order_inserts: true
+        batch_versioned_data: true
+      org:
+        hibernate:
+          envers:
+            audit_table_suffix: _audit
+            revision_field_name: revision_id
+            revision_type_field_name: revision_type
+            modified_flag_suffix: _modified
+    open-in-view: false
+    show-sql: false
+  liquibase:
+    enabled: true
+    change-log: classpath:/migration/master-changelog.xml
+    user: ${LIQUIBASE_USERNAME:liquibase_education}
+    password: ${LIQUIBASE_PASSWORD:password}
